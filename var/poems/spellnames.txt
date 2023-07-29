@@ -1,0 +1,12 @@
+
+fireball
+magic missile
+
+gate
+thorns
+
+water
+fire
+earth
+sky
+
