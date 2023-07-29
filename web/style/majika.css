@@ -1,0 +1,85 @@
+
+/* majika.css */
+
+/*
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+*/
+@import url("https://use.typekit.net/aqv1anf.css");
+
+/*
+ *   4pt  Brilliant      Perle
+ *   5pt  Pearl          Sedanoise
+ *   6pt  Nonpareil      Nonpareille
+ *   7pt  Minion         Mignonne
+ *   8pt  Brevier        Gaillarde Petit-texte
+ *   9pt  Bourgeois      Petit-romain Gaillarde
+ *  10pt  Long Primer    Philosophie
+ *  11pt  Small Pica     Cicero
+ *  12pt  Pica           St-Augustin
+ *  14pt  English        Gros-texte
+ *  18pt  Great Primer   Gros-romain
+ *  20pt  Paragon        Petit-paragon
+ */
+
+:root {
+
+  --phi: 1.61803398875;
+  --sq2: 1.41421356237;
+
+  --size-a: 14pt;
+    --mul-a: 1.15;
+  --size-b: 12pt;
+    --mul-b: calc((2 * var(--size-a) * var(--mul-a)) / (3 * var(--size-b)));
+  --size-c: 10pt;
+    --mul-c: calc((1 * var(--size-a) * var(--mul-a)) / (2 * var(--size-c)));
+
+  --page-width: 210mm; /* A4 */
+  --page-height: 297mm; /* A4 */
+  /*--page-width: 215.9mm; /* US Letter */
+  /*--page-height: 279.4mm; /* US Letter */
+
+  /*
+  --tblock-height: calc(var(--page-height) / 10 * 9);
+  --tblock-width: calc(var(--tblock-height) / var(--phi));
+
+  --top-margin: calc((var(--page-height) - var(--tblock-height)) / 3);
+  --spine-margin: calc(var(--page-width) / 21);
+
+  --edge-margin: calc(var(--page-width) - var(--spine-margin) - var(--tblock-width));
+
+  --side-left: calc(var(--spine-margin) + var(--tblock-width) + 1.0ch);
+  --side-rest: calc(var(--page-width) - var(--side-left));
+  --side-width: calc(var(--side-rest) - var(--spine-margin));
+
+  --title-face: trajan-pro-3, serif;
+  --main-face: minion-pro, serif;
+  --sans-face: ff-scala-sans-pro, sans-serif;
+
+  --border-maybe: lightgrey solid thin;
+  --border-maybe: none;
+  */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+  /* https://css-tricks.com/almanac/properties/b/box-sizing/ */
+
+/* top right bottom left */
+
+html {
+
+  font-family: var(--main-face);
+  font-size: var(--size-a);
+  line-height: var(--mul-a);
+}
+
+body {
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden { display: none; }
+

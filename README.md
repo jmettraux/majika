@@ -1,6 +1,7 @@
 
 # majika
 
+Script to generate a .html file.
 
 ## license
 
