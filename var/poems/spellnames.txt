@@ -1,12 +1,180 @@
 
-fireball
-magic missile
+Acid Splash
+Blade Ward
+Chill Touch
+Dancing Lights
+Encode Thoughts
+Fire Bolt
+Friends
+Guidance
+Light
+Mage Hand
+Message
+Minor Illusion
+Prestidigitation
+Ray of Frost
+Resistance
+Sacred Flame
+Shocking Grasp
+Spare the Dying
+Thaumaturgy
+True Strike
 
-gate
-thorns
+Bane
+Burning Hands
+Charm Person
+Chromatic Orb
+Command
+Create or Destroy Water
+Cure Wounds
+Detect Magic
+Disguise Self
+Expeditious Retreat
+Feather Fall
+Find Familiar
+Grease
+Identify
+Illusory Script
+Jump
+Mage Armor
+Magic Missile
+Message
+Misty Step
+Protection from Evil and Good
+Ray of Sickness
+Sleep
+Speak with Animals
+Thaumaturgy
+Unseen Servant
 
-water
-fire
-earth
-sky
+Aid
+Blindness/Deafness
+Calm Emotions
+Catnap
+Charm Monster
+Detect Thoughts
+Enlarge/Reduce
+Find Traps
+Fog Cloud
+Gentle Repose
+Invisibility
+Lesser Restoration
+Magic Mouth
+Melf's Acid Arrow
+Mirror Image
+Misty Step
+Pass Without Trace
+Ray of Enfeeblement
+Scorching Ray
+Suggestion
+Summon Lesser Demons
+Web
+
+Animal Friendship
+Clairvoyance
+Counterspell
+Daylight
+Dispel Magic
+Fireball
+Fly
+Gaseous Form
+Haste
+Identify
+Leomund's Tiny Hut
+Magic Circle
+Melf's Minute Meteors
+Protection from Energy
+Remove Curse
+Sending
+Spider Climb
+Speak with Dead
+Spirit Guardians
+Summon Lesser Demons
+Tongues
+Water Breathing
+
+Banishment
+Charm Person
+Confusion
+Dimension Door
+Elemental Bane
+Greater Invisibility
+Ice Storm
+Polymorph
+Raise Dead
+Stoneskin
+Summon Greater Demon
+Wall of Fire
+
+Conjure Elemental
+Dominate Person
+Geas/Quest
+Greater Restoration
+Hallow
+Hold Monster
+Invisibility
+Legend Lore
+Mordenkainen's Sword
+Passwall
+Planar Binding
+Raise Dead
+Scrying
+Telekinesis
+Wall of Stone
+
+Chain Lightning
+Circle of Death
+Disintegrate
+Eyebite
+Find the Path
+Harm
+Mass Suggestion
+Move Earth
+Otto's Irresistible Dance
+Planar Binding
+Raise Dead
+Sunbeam
+True Seeing
+
+Animate Dead
+Conjure Minor Elementals
+Control Water
+Earthquake
+Finger of Death
+Forcecage
+Greater Restoration
+Prismatic Spray
+Raise Dead
+Reverse Gravity
+Symbol
+Teleportation Circle
+
+Antimagic Field
+Clone
+Earthquake
+Feeblemind
+Geas/Quest
+Hallow
+Maze
+Power Word Stun
+Power Word Kill
+Resurrection
+Reverse Gravity
+Symbol
+Time Stop
+
+Astral Projection
+Gate
+Meteor Swarm
+Power Word Kill
+Resurrection
+Shapechange
+True Resurrection
+Wish
+Epic Level
+
+Kill
+Permanent Shapechange
+Stop
+Summon Elemental Spirits
 
