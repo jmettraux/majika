@@ -23,13 +23,28 @@ POEMS = Dir['var/poems/*.txt']
         .collect { |l| m = l.match(/^(.+)[,.;:]$/); m ? m[1] : l }
         .uniq
 
+def fetch_poem_line
+
+  {
+    /--/ => '—',
+    #/^i / => 'I ',
+  }
+    .inject(POEMS.sample.downcase) { |l, (k, v)| l.gsub(k, v) }
+end
+
+def make_poem
+
+  [ fetch_poem_line,
+    fetch_poem_line,
+    fetch_poem_line,
+      ].join("\n")
+end
+
 #pp POEMS
 puts
 pp POEMS.size
 
 puts
-puts POEMS.sample.downcase
-puts POEMS.sample.downcase
-puts POEMS.sample.downcase
+puts make_poem
 puts
 
