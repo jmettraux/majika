@@ -388,9 +388,7 @@ To what region of the clouds
 Has the wandering moon come home?
 Search
 
-| <- Romaji | | Japanese ->
-
-Bun'ya no Asayasu
+  # Bun'ya no Asayasu
 
 In the autumn fields
 When the heedless wind blows by
@@ -423,7 +421,7 @@ That I still love her so.
 Search
 
 
-Taira no Kanemori
+  # Taira no Kanemori
 
 Though I would hide it,
 In my face it still appears--
@@ -434,7 +432,7 @@ And now he questions me:
 Search
 
 
-Mibu no Tadami
+  # Mibu no Tadami
 
 It is true I love,
 But the rumor of my love

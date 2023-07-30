@@ -184,7 +184,7 @@ If I go out now,
 my paws
 will get wet
 
-A car is coming but
+#A car is coming but
 the cat knows
 It's not a snake
 
@@ -196,7 +196,7 @@ I should have scratched
 that spot before
 I started to sleep
 
-Haiku my eyes!
+#Haiku my eyes!
 my mother is calling!
 
 Arms folded

@@ -23,7 +23,8 @@ POEMS = Dir['var/poems/*.txt']
         .collect { |l| m = l.match(/^(.+)[,.;:]$/); m ? m[1] : l }
         .uniq
 
-pp POEMS
+#pp POEMS
+puts
 pp POEMS.size
 
 puts
