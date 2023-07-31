@@ -1,4 +1,6 @@
-﻿ #book i
+﻿!! SKIP !!
+
+#book i
 #gamuret
 if unfaith in the heart find dwelling,
 then the soul it shall reap but woe;
@@ -2299,8 +2301,7 @@ sweet pears on the ground
 that lie as thick as the knights lay round him!
 for his was the victory!
 and the cry arose from many who had fallen in joust before,
-'fly!
-fly!
+'fly! fly!
 for the anchor cometh!
 then a knight towards him bore,
 a prince of the angevin country)
@@ -2469,8 +2470,7 @@ yea, and rassalig the moor,
 whom thine hand before patelamunt o'erthrew
 and he surety swore,
 such lesson thou there didst teach him
-yea,
-this doth thy fame desire
+yea, this doth thy fame desire
 that with every coming conflict it broader shall wax
 and higher.
 'the queen sure will deem thou ravest,
@@ -2665,8 +2665,7 @@ henceforward shall never a man deny
 that on earth ne'er was born thine equal for manhood
 and courtesy,
 and the fruit of a free hand knightly from thine heart did it bloom amain.
-ah!
-woe is me for thy goodness!
+ah! woe is me for thy goodness!
 then to kailet he spake again,
 'how goeth it with schoettè, my mother,
 of joy bereft?
@@ -3003,8 +3002,7 @@ and the thunder crashed loud around her,
 and the rain-drops were burning tears
 for a little space was she conscious,
 then a grip on her right hand fell, and,
-lo!
-it was changed, the vision,
+lo! it was changed, the vision,
 and wondrous things befell;
 for then did she nurse a dragon,
 that forth from her body sprung,
@@ -3052,8 +3050,7 @@ may he whom as lamb they show with the cross in his hold,
 have mercy on the deeds
 that are wrought below!
 'then when one host met the other:
-ah!
-that was indeed a fight,
+ah! that was indeed a fight,
 and the knights who were with the baruch they fought all as men of might,
 and there in the field by bagdad full many a shield was pierced,
 as they flew each one on the other,
@@ -3475,8 +3472,7 @@ he gave unto them their song,
 and i would not
 that one of his creatures should sorrow because of me.
 but the boy looked up in wonder, 'god,
-mother?
-who may god be?
+mother? who may god be?
 'my son, he is light beyond all light,
 brighter than summer's day,
 and he bare a man's face,
@@ -9863,7 +9859,7 @@ and strength doth thy youth embrace!
 both rich and wise was the heathen,
 and of wisdom she token gave,
 in the french tongue her speech was holden.
-) then out spake the hero brave,
+then out spake the hero brave,
 and he quoth, 'god reward thee, lady,
 who thinkest to comfort me,
 yet sorrow it fast doth bind me,
