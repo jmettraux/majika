@@ -35,5 +35,16 @@ paras = paras
     end
     a }
 
+#paras = paras
+#  .inject([]) { |a, para|
+#    if para.length > MAXW
+#      ps = para.split(' and ')
+#      a.concat(ps[0..-2].collect { |p| p + ' aNd' })
+#      a << ps[-1]
+#    else
+#      a << para
+#    end
+#    a }
+
 puts paras
 
