@@ -17,7 +17,8 @@ paras = lines
     end
     a }
 
-%w[ . , ; : ? ].each do |punct|
+%w[ . , ; : ? ! ].each do |punct|
+
   paras = paras
     .inject([]) { |a, para|
       gs = para.strip.split(punct)
@@ -35,16 +36,30 @@ paras = paras
     end
     a }
 
-#paras = paras
-#  .inject([]) { |a, para|
-#    if para.length > MAXW
-#      ps = para.split(' and ')
-#      a.concat(ps[0..-2].collect { |p| p + ' aNd' })
-#      a << ps[-1]
-#    else
-#      a << para
-#    end
-#    a }
+[ ' and ', '--' ].each do |punct|
+
+  paras = paras
+    .inject([]) { |a, para|
+      if para.length < MAXW || !para.index(punct)
+        a << para
+      else
+        #ps = para.split(punct).flat_map { |e| [ e, punct ] }[0..-2]
+        frags = para.split(punct)
+        a << frags.shift
+        frags.each do |frag|
+          s = a.last + punct + frag
+          if s.length < MAXW
+            a[-1] = s
+          else
+            a << (punct + frag).strip
+          end
+        end
+      end
+      a }
+end
+
+paras = paras
+  .collect(&:strip)
 
 puts paras
 
