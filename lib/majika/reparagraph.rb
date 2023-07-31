@@ -71,7 +71,8 @@ end
 lines = paras
   .collect { |li|
     li.strip
-      .gsub(/^' /, '')
+      .gsub(/^'\s+/, '')
+      .gsub(/^"\s+/, '')
       .gsub(/^--/, '')
       .gsub(/^\(/, '')
       .strip }
