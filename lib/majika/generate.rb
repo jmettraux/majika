@@ -12,9 +12,13 @@ SITES = %w[
     ]
 
 POEMS = Dir['var/poems/*.txt']
-  .inject([]) { |a, path|
+  .collect { |path|
+    File.readlines(path) }
+  .reject { |lines|
+    lines[0, 7].find { |l| l.strip.match?(/\!+\s*SKIP\s*\!+/) } }
+  .inject([]) { |a, lines|
     a.concat(
-      File.readlines(path)
+      lines
         .collect(&:strip)
         .select { |l|
           l.length > 0 &&
