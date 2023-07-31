@@ -26,6 +26,16 @@ paras = lines
       a.concat(gs) }
 end
 
+#RESTICKS = %w[ ) ]
+#paras = paras
+#  .inject([]) { |a, para|
+#    if RESTICKS.include?(para)
+#      a[-1] = a[-1] + para
+#    else
+#      a << para
+#    end
+#    a }
+
 paras = paras
   .inject([]) { |a, para|
     al = a.last
@@ -36,7 +46,7 @@ paras = paras
     end
     a }
 
-[ ' and ', '--' ].each do |punct|
+[ ' and ', '--', 'that' ].each do |punct|
 
   paras = paras
     .inject([]) { |a, para|
@@ -58,8 +68,15 @@ paras = paras
       a }
 end
 
-paras = paras
-  .collect(&:strip)
+lines = paras
+  .collect { |li|
+    li.strip
+      .gsub(/^' /, '')
+      .gsub(/^--/, '')
+      .gsub(/^\(/, '')
+      .strip }
+  .reject { |li|
+    li == '' || li == "'" || li == "\"'" || li == ')' }
 
-puts paras
+puts lines
 
