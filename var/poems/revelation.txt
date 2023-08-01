@@ -1,9 +1,9 @@
-the revelation of jesus christ,
+#the revelation of jesus christ,
 which god gave unto him,
 to shew unto his servants things which must shortly come to pass;
 and he sent
 and signified it by his angel unto his servant john who bare record of the word of god,
-and of the testimony of jesus christ,
+#and of the testimony of jesus christ,
 and of all things that he saw blessed is he that readeth,
 and they that hear the words of this prophecy,
 and keep those things which are written therein:
@@ -12,7 +12,7 @@ grace be unto you, and peace,
 from him which is, and which was,
 and which is to come;
 and from the seven spirits which are before his throne
-and from jesus christ,
+#and from jesus christ,
 who is the faithful witness,
 and the first begotten of the dead,
 and the prince of the kings of the earth.
@@ -33,10 +33,10 @@ and which is to come, the almighty i john,
 who also am your brother,
 and companion in tribulation,
 and in the kingdom
-and patience of jesus christ,
+#and patience of jesus christ,
 was in the isle that is called patmos,
 for the word of god,
-and for the testimony of jesus christ i was in the spirit on the lord's day,
+#and for the testimony of jesus christ i was in the spirit on the lord's day,
 and heard behind me a great voice,
 as of a trumpet saying,
 i am alpha and omega,
@@ -827,7 +827,7 @@ and swallowed up the flood which the dragon cast out of his mouth
 and the dragon was wroth with the woman,
 and went to make war with the remnant of her seed,
 which keep the commandments of god,
-and have the testimony of jesus christ
+#and have the testimony of jesus christ
 and i stood upon the sand of the sea,
 and saw a beast rise up out of the sea,
 having seven heads and ten horns,
@@ -946,7 +946,7 @@ and they have no rest day nor night,
 who worship the beast and his image,
 and whosoever receiveth the mark of his name here is the patience of the saints:
 here are they that keep the commandments of god,
-and the faith of jesus
+#and the faith of jesus
 and i heard a voice from heaven saying unto me,
 write,
 blessed are the dead which die in the lord from henceforth:
@@ -1105,7 +1105,7 @@ mystery, babylon the great,
 the mother of harlots
 and abominations of the earth
 and i saw the woman drunken with the blood of the saints,
-and with the blood of the martyrs of jesus:
+#and with the blood of the martyrs of jesus:
 and when i saw her,
 i wondered with great admiration
 and the angel said unto me,
@@ -1304,9 +1304,9 @@ these are the true sayings of god
 and i fell at his feet to worship him.
 and he said unto me, see thou do it not:
 i am thy fellowservant,
-and of thy brethren that have the testimony of jesus:
+#and of thy brethren that have the testimony of jesus:
 worship god:
-for the testimony of jesus is the spirit of prophecy
+#for the testimony of jesus is the spirit of prophecy
 and i saw heaven opened,
 and behold a white horse;
 and he that sat upon him was called faithful
@@ -1370,7 +1370,7 @@ and after that he must be loosed a little season
 and i saw thrones,
 and they sat upon them,
 and judgment was given unto them:
-and i saw the souls of them that were beheaded for the witness of jesus,
+#and i saw the souls of them that were beheaded for the witness of jesus,
 and for the word of god,
 and which had not worshipped the beast,
 neither his image,
@@ -1588,7 +1588,7 @@ and may enter in through the gates into the city for without are dogs,
 and sorcerers, and whoremongers,
 and murderers, and idolaters,
 and whosoever loveth
-and maketh a lie i jesus have sent mine angel to testify unto you these things in the churches.
+#and maketh a lie i jesus have sent mine angel to testify unto you these things in the churches.
 i am the root and the offspring of david,
 and the bright and morning star
 and the spirit and the bride say,
@@ -1606,5 +1606,5 @@ and from the things which are written in this book he which testifieth these thi
 surely i come quickly.
 amen.
 even so, come,
-lord jesus the grace of our lord jesus christ be with you all.
+#lord jesus the grace of our lord jesus christ be with you all.
 amen
