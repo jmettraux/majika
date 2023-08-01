@@ -27,6 +27,10 @@ POEMS = Dir['var/poems/*.txt']
         .collect { |l| m = l.match(/^(.+)[,.;:]$/); m ? m[1] : l }
         .uniq
 
+STOPS = File.readlines('lib/majika/stop_words.txt')
+  .collect { |l| l.strip.downcase }
+  .select { |w| w.length > 0 }
+
 def fetch_poem_line
 
   {
@@ -40,15 +44,20 @@ def make_poem
 
   [ fetch_poem_line,
     fetch_poem_line,
-    fetch_poem_line,
-      ].join("\n")
+    fetch_poem_line, ]
+      .shuffle
+      .join("\n")
 end
 
 #pp POEMS
 puts
 pp POEMS.size
 
+poem = make_poem
+words = (poem.scan(/\b\w+\b/) - STOPS).select { |w| w.length > 2 }
+word = words.sample
+
 puts
-puts make_poem
+puts poem.gsub(word, word.upcase)
 puts
 
