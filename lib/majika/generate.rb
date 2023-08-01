@@ -29,15 +29,19 @@ POEMS = Dir['var/poems/*.txt']
 
 STOPS = File.readlines('lib/majika/stop_words.txt')
   .collect { |l| l.strip.downcase }
-  .select { |w| w.length > 0 }
+  .select { |w| w.length > 0 && w[0, 1] != '#' }
 
 def fetch_poem_line
 
   {
+    /^--+/ => '',
+    /-+-$/ => '',
     /--/ => '—',
+    /^"+([^"]+)$/ => '\1',
+    /^([^"]+)"+$/ => '\1',
     #/^i / => 'I ',
   }
-    .inject(POEMS.sample.downcase) { |l, (k, v)| l.gsub(k, v) }
+    .inject(POEMS.sample.downcase) { |l, (k, v)| l.strip.gsub(k, v) }
 end
 
 def make_poem
