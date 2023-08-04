@@ -1,8 +1,11 @@
 
 RUBY = ruby30
 
-generate:
-	@$(RUBY) lib/majika/generate.rb
+poem:
+	@$(RUBY) lib/majika/poem.rb
+
+cards:
+	@$(RUBY) lib/majika/cards.rb
 
 serve:
 	$(RUBY) -run -ehttpd web/ -p7003

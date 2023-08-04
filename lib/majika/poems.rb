@@ -1,5 +1,5 @@
 
-# lib/majika/generate.rb
+# lib/majika/poems.rb
 
 SITES = %w[
   hill
@@ -44,24 +44,22 @@ def fetch_poem_line
     .inject(POEMS.sample.downcase) { |l, (k, v)| l.strip.gsub(k, v) }
 end
 
-def make_poem
+def make_poem(opts={})
 
-  [ fetch_poem_line,
+  s = [
+    fetch_poem_line,
     fetch_poem_line,
     fetch_poem_line, ]
       .shuffle
       .join("\n")
+
+  if opts[:highlight_one_word]
+
+    words = (poem.scan(/\b\w+\b/) - STOPS).select { |w| w.length > 2 }
+    word = words.sample
+    s = s.gsub(word, word.upcase)
+  end
+
+  s
 end
-
-#pp POEMS
-puts
-pp POEMS.size
-
-poem = make_poem
-words = (poem.scan(/\b\w+\b/) - STOPS).select { |w| w.length > 2 }
-word = words.sample
-
-puts
-puts poem.gsub(word, word.upcase)
-puts
 
