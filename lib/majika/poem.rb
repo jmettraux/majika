@@ -11,6 +11,6 @@ puts
 pp POEMS.size
 
 puts
-puts make_poem(highlight_one_size: true)
+puts make_poem(highlight_one_word: true)
 puts
 
