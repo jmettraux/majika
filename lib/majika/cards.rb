@@ -8,7 +8,7 @@ require 'majika/poems'
 
 def make_card(f)
 
-  s = make_poem
+  s = make_poem(highlight_one_word: true)
 
   f.puts("<div class='card'>")
   f.puts("<div class='poem'>")

@@ -55,7 +55,7 @@ def make_poem(opts={})
 
   if opts[:highlight_one_word]
 
-    words = (poem.scan(/\b\w+\b/) - STOPS).select { |w| w.length > 2 }
+    words = (s.scan(/\b\w+\b/) - STOPS).select { |w| w.length > 2 }
     word = words.sample
     s = s.gsub(word, word.upcase)
   end
