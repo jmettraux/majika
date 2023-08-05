@@ -43,12 +43,13 @@ body {
 }
 
 .poem {
+  padding-top: 1.0rem;
   font-size: 11pt;
   text-align: center;
 }
 
 .illustration {
-  padding-top: 2.1rem;
+  padding-top: 1.0rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -60,5 +61,23 @@ body {
   /*text-align: center;*/
   justify-self: center;
   align-self: end;
+}
+
+img.sym {
+  height: 1.0rem;
+}
+
+.head, .foot {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 40% auto 40%;
+  grid-template-rows: 1fr;
+}
+.head .east, .foot .east {
+  text-align: right;
+}
+
+.foot {
+  padding-top: 2.1rem;
 }
 
