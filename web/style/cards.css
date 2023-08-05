@@ -37,9 +37,19 @@ body {
 }
 .card {
   box-sizing: border-box;
-  border: 0.1px solid lightgrey;
+  border-top: 0.1px dashed lightgrey;
+  border-left: 0.1px dashed lightgrey;
   padding: 1rem;
   color: grey;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.4rem 4.9rem 3.5rem auto;
+}
+.card.south-row {
+  border-bottom: 0.1px dashed lightgrey;
+}
+.card.east-row {
+  border-right: 0.1px dashed lightgrey;
 }
 
 .poem {
@@ -70,14 +80,19 @@ img.sym {
 .head, .foot {
   display: grid;
   width: 100%;
-  grid-template-columns: 40% auto 40%;
+  grid-template-columns: auto auto auto;
   grid-template-rows: 1fr;
 }
 .head .east, .foot .east {
   text-align: right;
 }
 
+.head {
+  border-bottom: 1px dashed lightgrey;
+}
 .foot {
-  padding-top: 2.1rem;
+  margin-top: 2.1rem;
+  border-top: 1px dashed lightgrey;
+  padding-top: 0.3rem;
 }
 

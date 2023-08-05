@@ -4,6 +4,11 @@
 Script to generate a .html file.
 
 
+## brother
+
+4.23mm / 0.16in margins
+
+
 ## license
 
 

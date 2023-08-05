@@ -147,9 +147,13 @@ def make_foot(f)
   f.puts("</div>")
 end
 
-def make_card(f)
+def make_card(f, i)
 
-  f.puts("<div class='card'>")
+  k = ''
+  k += ' east-row' if [ 2, 5, 8 ].include?(i)
+  k += ' south-row' if [ 6, 7, 8 ].include?(i)
+
+  f.puts("<div class='card#{k}'>")
 
   make_head(f)
   make_text(f)
@@ -164,7 +168,7 @@ File.open(
   "web/cards.html", 'wb'
 ) do |f|
   f.write(File.read('lib/majika/cards_head.html'))
-  9.times { make_card(f) }
+  9.times { |i| make_card(f, i) }
   f.write(File.read('lib/majika/cards_tail.html'))
 end
 
