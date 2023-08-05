@@ -116,6 +116,7 @@ def make_product(f)
   roll('1d6-3', 0).times { f.puts(IMGS[:heart]) }
   roll('1d6-3', 0).times { f.puts(IMGS[:droplet]) }
   roll('1d6-3', 0).times { f.puts(IMGS[:bolt]) }
+  roll('1d6-3', 0).times { f.puts(IMGS[:shield]) }
 end
 
 def make_head(f)
