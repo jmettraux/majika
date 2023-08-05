@@ -45,7 +45,7 @@ IMGS = %w[
 
 require 'majika/poems'
 
-def make_text(f)
+def make_text(k, f)
 
   s = make_poem(highlight_one_word: true)
 
@@ -54,16 +54,19 @@ def make_text(f)
   f.puts("</div>")
 end
 
-def make_illustration(f)
+def make_illustration(k, f)
 
   svgs = Dir['web/images/choro/*.svg'].collect { |pa| pa.split('/', 2).last }
 
+  dmg = (%w[ 1d1 1d4 1d6 2d6 1d8 2d8 1d10 1d12 1d20 ] + [ '' ]).sample
+  dfc = roll('3d6+1', min: 5)
+
   f.puts("<div class='illustration'>")
-  3.times do
-    f.puts("<div class='piece'>")
-    f.puts("<img src='#{svgs.sample}'>")
-    f.puts("</div>")
-  end
+    f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
+    f.puts("<div class='damage'>#{dmg}</div>")
+    f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
+    f.puts("<div class='defence'>#{dfc}</div>")
+    f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
   f.puts("</div>")
 end
 
@@ -79,22 +82,25 @@ def do_roll(count, die, modifier=0, min, max)
   r
 end
 
-def roll(s, min=-10_000, max=10_000)
+#def roll(s, min=-10_000, max=10_000)
+def roll(s, opts={})
 
   m = s.match(/^(\d*)d(\d+)([-+]\d+)?$/)
 
   mod =
-    m[3] == '' ? 0 :
+    m[3] == nil || m[3] == '' ? 0 :
     m[3].start_with?('+') ? (m[3][1..-1]).to_i :
     -1 * (m[3][1..-1]).to_i
 
-  do_roll(m[1].to_i, m[2].to_i, mod, min, max)
+  do_roll(
+    m[1].to_i, m[2].to_i, mod,
+    opts[:min] || -10_000, opts[:max] || 10_000)
 end
 
-def make_cost(f)
+def make_cost(k, f)
 
-  roll('2d5-5', 0).times { f.puts(IMGS[:heart]) }
-  roll('2d6-5', 0).times { f.puts(IMGS[:droplet]) }
+  roll('2d5-5', min: 0).times { f.puts(IMGS[:heart]) }
+  roll('2d6-5', min: 0).times { f.puts(IMGS[:droplet]) }
   #if (n = roll('2d6-5', 0)) > 0
   #  f.print("#{n} #{IMGS[:heart]}")
   #end
@@ -103,62 +109,65 @@ def make_cost(f)
   #end
 end
 
-def make_benefit(f)
+def make_benefit(k, f)
 
-  roll('1d10-9', 0).times { f.puts(IMGS[:gate]) }
+  roll('1d10-9', min: 0).times { f.puts(IMGS[:gate]) }
 end
 
-def make_condition(f)
+def make_condition(k, f)
 end
 
-def make_product(f)
+def make_product(k, f)
 
-  roll('1d6-3', 0).times { f.puts(IMGS[:heart]) }
-  roll('1d6-3', 0).times { f.puts(IMGS[:droplet]) }
-  roll('1d6-3', 0).times { f.puts(IMGS[:bolt]) }
-  roll('1d6-3', 0).times { f.puts(IMGS[:shield]) }
+  roll('1d6-3', min: 0).times { f.puts(IMGS[:heart]) }
+  roll('1d6-3', min: 0).times { f.puts(IMGS[:droplet]) }
+  roll('1d6-3', min: 0).times { f.puts(IMGS[:bolt]) }
+  roll('1d6-3', min: 0).times { f.puts(IMGS[:shield]) }
+  roll('1d6-5', min: 0, max:1).times { f.puts(IMGS[:person]) }
 end
 
-def make_head(f)
+def make_head(k, f)
 
   f.puts("<div class='head'>")
     f.puts("<div class='west'>")
-      make_cost(f)
+      make_cost(k, f)
     f.puts("</div>")
     f.puts("<div class='center'>")
     f.puts("</div>")
     f.puts("<div class='east'>")
-      make_benefit(f)
+      make_benefit(k, f)
     f.puts("</div>")
   f.puts("</div>")
 end
 
-def make_foot(f)
+def make_foot(k, f)
 
   f.puts("<div class='foot'>")
     f.puts("<div class='west'>")
-      make_condition(f)
+      make_condition(k, f)
     f.puts("</div>")
     f.puts("<div class='center'>")
     f.puts("</div>")
     f.puts("<div class='east'>")
-      make_product(f)
+      make_product(k, f)
     f.puts("</div>")
   f.puts("</div>")
 end
 
 def make_card(f, i)
 
-  k = ''
-  k += ' east-row' if [ 2, 5, 8 ].include?(i)
-  k += ' south-row' if [ 6, 7, 8 ].include?(i)
+  k = {}
 
-  f.puts("<div class='card#{k}'>")
+  c = ''
+  c += ' east-row' if [ 2, 5, 8 ].include?(i)
+  c += ' south-row' if [ 6, 7, 8 ].include?(i)
 
-  make_head(f)
-  make_text(f)
-  make_illustration(f)
-  make_foot(f)
+  f.puts("<div class='card#{c}'>")
+
+  make_head(k, f)
+  make_text(k, f)
+  make_illustration(k, f)
+  make_foot(k, f)
 
   f.puts("</div>")
 end
