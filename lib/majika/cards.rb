@@ -6,6 +6,15 @@ $: << 'lib'
 
 require 'majika/poems'
 
+def make_text(f)
+
+  s = make_poem(highlight_one_word: true)
+
+  f.puts("<div class='poem'>")
+  f.puts(s.split("\n").join("<br/>"))
+  f.puts("</div>")
+end
+
 def make_illustration(f)
 
   svgs = Dir['web/images/choro/*.svg'].collect { |pa| pa.split('/', 2).last }
@@ -19,17 +28,51 @@ def make_illustration(f)
   f.puts("</div>")
 end
 
-def make_card(f)
+def make_cost(f)
+end
+def make_benefit(f)
+end
+def make_condition(f)
+end
+def make_product(f)
+end
 
-  s = make_poem(highlight_one_word: true)
+def make_head(f)
+
+  f.puts("<div class='head'>")
+    f.puts("<div class='west'>")
+      make_cost(f)
+    f.puts("</div>")
+    f.puts("<div class='center'>")
+    f.puts("</div>")
+    f.puts("<div class='east'>")
+      make_benefit(f)
+    f.puts("</div>")
+  f.puts("</div>")
+end
+
+def make_foot(f)
+
+  f.puts("<div class='foot'>")
+    f.puts("<div class='west'>")
+      make_condition(f)
+    f.puts("</div>")
+    f.puts("<div class='center'>")
+    f.puts("</div>")
+    f.puts("<div class='east'>")
+      make_product(f)
+    f.puts("</div>")
+  f.puts("</div>")
+end
+
+def make_card(f)
 
   f.puts("<div class='card'>")
 
-  f.puts("<div class='poem'>")
-  f.puts(s.split("\n").join("<br/>"))
-  f.puts("</div>")
-
+  make_head(f)
+  make_text(f)
   make_illustration(f)
+  make_foot(f)
 
   f.puts("</div>")
 end
