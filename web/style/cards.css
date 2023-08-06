@@ -61,10 +61,10 @@ body {
 .illustration {
   padding-top: 1.0rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   column-gap: 0.7rem;
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
 }
 .illustration > div {

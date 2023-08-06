@@ -1,6 +1,8 @@
 
 # lib/majika/cards.rb
 
+require 'ostruct'
+
 $: << 'lib'
 
 IMGS = %w[
@@ -58,10 +60,16 @@ def make_illustration(k, f)
 
   svgs = Dir['web/images/choro/*.svg'].collect { |pa| pa.split('/', 2).last }
 
-  dmg = (%w[ 1d1 1d4 1d6 2d6 1d8 2d8 1d10 1d12 1d20 ] + [ '' ]).sample
+  mod = "+#{k.cost.level}"
+
+  dmg = (
+    [ '' ] + %w[ 1d1 1d4 1d6 1d8 2d4 1d10 1d12 2d6 3d4 1d20 3d6 2d10 ]
+  )[k.product.level] || '2d20'
+
   dfc = roll('3d6+1', min: 5)
 
   f.puts("<div class='illustration'>")
+    f.puts("<div class='modifier'>#{mod}</div>")
     f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
     f.puts("<div class='damage'>#{dmg}</div>")
     f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
@@ -99,19 +107,13 @@ end
 
 def make_cost(k, f)
 
-  roll('2d5-5', min: 0).times { f.puts(IMGS[:heart]) }
-  roll('2d6-5', min: 0).times { f.puts(IMGS[:droplet]) }
-  #if (n = roll('2d6-5', 0)) > 0
-  #  f.print("#{n} #{IMGS[:heart]}")
-  #end
-  #if (n = roll('2d6-5', 0)) > 0
-  #  f.print("#{n} #{IMGS[:droplet]}")
-  #end
+  k.cost.hearts.times { f.puts(IMGS[:heart]) }
+  k.cost.droplets.times { f.puts(IMGS[:droplet]) }
 end
 
 def make_benefit(k, f)
 
-  roll('1d10-9', min: 0).times { f.puts(IMGS[:gate]) }
+  k.benefit.gates.times { f.puts(IMGS[:gate]) }
 end
 
 def make_condition(k, f)
@@ -119,11 +121,11 @@ end
 
 def make_product(k, f)
 
-  roll('1d6-3', min: 0).times { f.puts(IMGS[:heart]) }
-  roll('1d6-3', min: 0).times { f.puts(IMGS[:droplet]) }
-  roll('1d6-3', min: 0).times { f.puts(IMGS[:bolt]) }
-  roll('1d6-3', min: 0).times { f.puts(IMGS[:shield]) }
-  roll('1d6-5', min: 0, max:1).times { f.puts(IMGS[:person]) }
+  k.product.hearts.times { f.puts(IMGS[:heart]) }
+  k.product.droplets.times { f.puts(IMGS[:droplet]) }
+  k.product.bolts.times { f.puts(IMGS[:bolt]) }
+  k.product.shields.times { f.puts(IMGS[:shield]) }
+  k.product.persons.times { f.puts(IMGS[:person]) }
 end
 
 def make_head(k, f)
@@ -156,7 +158,35 @@ end
 
 def make_card(f, i)
 
-  k = {}
+  k = OpenStruct.new
+  k.cost = OpenStruct.new
+  k.benefit = OpenStruct.new
+  k.product = OpenStruct.new
+
+  k.cost.hearts = roll('2d5-5', min: 0)
+  k.cost.droplets = roll('2d6-5', min: 0)
+
+  k.cost.level =
+    %w[ hearts droplets ]
+      .inject(0) { |r, n|
+        mod = 1
+        r + mod * k.cost[n] }
+
+  k.benefit.gates = roll('1d10-9', min: 0)
+
+  k.product.hearts = roll('1d6-3', min: 0)
+  k.product.droplets = roll('1d6-3', min: 0)
+  k.product.bolts = roll('1d6-3', min: 0)
+  k.product.shields = roll('1d6-3', min: 0)
+  k.product.persons = roll('1d6-5', min: 0, max: 1)
+
+  k.product.level =
+    %w[ hearts droplets bolts shields persons ]
+      .inject(0) { |r, n|
+        mod =
+          n == 'persons' ? 4 :
+          1
+        r + mod * k.product[n] }
 
   c = ''
   c += ' east-row' if [ 2, 5, 8 ].include?(i)
