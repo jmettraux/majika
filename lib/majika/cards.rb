@@ -12,6 +12,7 @@ IMGS = %w[
          moon  light_moon.svg
         sword  light_sword.svg
          gate  light_torii_gate.svg
+      hexagon  light_hexagon.svg
        updown  regular_arrow_down_arrow_up.svg
       arcdown  regular_arrow_down_to_arc.svg
         arcup  regular_arrow_up_from_arc.svg
@@ -23,7 +24,6 @@ IMGS = %w[
       droplet  regular_droplet.svg
          fire  regular_fire_flame_curved.svg
         heart  regular_heart.svg
-      hexagon  regular_hexagon.svg
       octagon  regular_octagon.svg
     hourglass  regular_hourglass.svg
   octagonplus  regular_octagon_plus.svg
@@ -60,23 +60,30 @@ def make_illustration(k, f)
 
   svgs = Dir['web/images/choro/*.svg'].collect { |pa| pa.split('/', 2).last }
 
-  mod = "+#{k.cost.level}"
-
-  dmg = (
-    [ '' ] + %w[ 1d1 1d4 1d6 1d8 2d4 1d10 1d12 2d6 3d4 1d20 3d6 2d10 ]
-  )[k.product.level] || '2d20'
-
-  dfc = roll('3d6+1', min: 5)
-
-  f.puts("<div class='illustration'>")
-    f.puts("<div class='modifier'>#{mod}</div>")
-    f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
-    f.puts("<div class='damage'>#{dmg}</div>")
-    f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
-    f.puts("<div class='defence'>#{dfc}</div>")
-    f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
-  f.puts("</div>")
+  f.puts("<div class='illustration'><img src='#{svgs.sample}'></div>")
 end
+
+#def make_illustration(k, f)
+#
+#  svgs = Dir['web/images/choro/*.svg'].collect { |pa| pa.split('/', 2).last }
+#
+#  mod = "+#{k.cost.level}"
+#
+#  dmg = (
+#    [ '' ] + %w[ 1d1 1d4 1d6 1d8 2d4 1d10 1d12 2d6 3d4 1d20 3d6 2d10 ]
+#  )[k.product.level] || '2d20'
+#
+#  dfc = roll('3d6+1', min: 5)
+#
+#  f.puts("<div class='illustration'>")
+#    f.puts("<div class='modifier'>#{mod}</div>")
+#    f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
+#    f.puts("<div class='damage'>#{dmg}</div>")
+#    f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
+#    f.puts("<div class='defence'>#{dfc}</div>")
+#    f.puts("<div class='piece'><img src='#{svgs.sample}'></div>")
+#  f.puts("</div>")
+#end
 
 def do_roll(count, die, modifier=0, min, max)
 
@@ -105,88 +112,97 @@ def roll(s, opts={})
     opts[:min] || -10_000, opts[:max] || 10_000)
 end
 
-def make_cost(k, f)
+#def make_cost(k, f)
+#
+#  k.cost.hearts.times { f.puts(IMGS[:heart]) }
+#  k.cost.droplets.times { f.puts(IMGS[:droplet]) }
+#end
 
-  k.cost.hearts.times { f.puts(IMGS[:heart]) }
-  k.cost.droplets.times { f.puts(IMGS[:droplet]) }
-end
+#def make_benefit(k, f)
+#
+#  k.benefit.gates.times { f.puts(IMGS[:gate]) }
+#end
 
-def make_benefit(k, f)
+#def make_condition(k, f)
+#end
+#
+#def make_product(k, f)
+#
+#  k.product.hearts.times { f.puts(IMGS[:heart]) }
+#  k.product.droplets.times { f.puts(IMGS[:droplet]) }
+#  k.product.bolts.times { f.puts(IMGS[:bolt]) }
+#  k.product.shields.times { f.puts(IMGS[:shield]) }
+#  k.product.persons.times { f.puts(IMGS[:person]) }
+#end
 
-  k.benefit.gates.times { f.puts(IMGS[:gate]) }
-end
+#def make_head(k, f)
+#
+#  f.puts("<div class='head'>")
+#    f.puts("<div class='west'>")
+#      make_cost(k, f)
+#    f.puts("</div>")
+#    f.puts("<div class='center'>")
+#    f.puts("</div>")
+#    f.puts("<div class='east'>")
+#      make_benefit(k, f)
+#    f.puts("</div>")
+#  f.puts("</div>")
+#end
 
-def make_condition(k, f)
-end
+#def make_foot(k, f)
+#
+#  f.puts("<div class='foot'>")
+#    f.puts("<div class='west'>")
+#      make_condition(k, f)
+#    f.puts("</div>")
+#    f.puts("<div class='center'>")
+#    f.puts("</div>")
+#    f.puts("<div class='east'>")
+#      make_product(k, f)
+#    f.puts("</div>")
+#  f.puts("</div>")
+#end
 
-def make_product(k, f)
+def make_gates(k, f)
 
-  k.product.hearts.times { f.puts(IMGS[:heart]) }
-  k.product.droplets.times { f.puts(IMGS[:droplet]) }
-  k.product.bolts.times { f.puts(IMGS[:bolt]) }
-  k.product.shields.times { f.puts(IMGS[:shield]) }
-  k.product.persons.times { f.puts(IMGS[:person]) }
-end
-
-def make_head(k, f)
-
-  f.puts("<div class='head'>")
-    f.puts("<div class='west'>")
-      make_cost(k, f)
+  %w[ north south west east ].each do |k|
+    f.puts("<div class='#{k} gate'>")
+      f.puts(IMGS[:hexagon])
     f.puts("</div>")
-    f.puts("<div class='center'>")
-    f.puts("</div>")
-    f.puts("<div class='east'>")
-      make_benefit(k, f)
-    f.puts("</div>")
-  f.puts("</div>")
-end
-
-def make_foot(k, f)
-
-  f.puts("<div class='foot'>")
-    f.puts("<div class='west'>")
-      make_condition(k, f)
-    f.puts("</div>")
-    f.puts("<div class='center'>")
-    f.puts("</div>")
-    f.puts("<div class='east'>")
-      make_product(k, f)
-    f.puts("</div>")
-  f.puts("</div>")
+  end
 end
 
 def make_card(f, i)
 
   k = OpenStruct.new
-  k.cost = OpenStruct.new
-  k.benefit = OpenStruct.new
-  k.product = OpenStruct.new
+  #k.cost = OpenStruct.new
+  #k.benefit = OpenStruct.new
+  #k.product = OpenStruct.new
 
-  k.cost.hearts = roll('2d5-5', min: 0)
-  k.cost.droplets = roll('2d6-5', min: 0)
+  #k.cost.hearts = roll('2d5-5', min: 0)
+  #k.cost.droplets = roll('2d6-5', min: 0)
 
-  k.cost.level =
-    %w[ hearts droplets ]
-      .inject(0) { |r, n|
-        mod = 1
-        r + mod * k.cost[n] }
+  #k.cost.level =
+  #  %w[ hearts droplets ]
+  #    .inject(0) { |r, n|
+  #      mod = 1
+  #      r + mod * k.cost[n] }
 
-  k.benefit.gates = roll('1d10-9', min: 0)
+  #k.benefit.gates = roll('1d10-9', min: 0)
 
-  k.product.hearts = roll('1d6-3', min: 0)
-  k.product.droplets = roll('1d6-3', min: 0)
-  k.product.bolts = roll('1d6-3', min: 0)
-  k.product.shields = roll('1d6-3', min: 0)
-  k.product.persons = roll('1d6-5', min: 0, max: 1)
+  #k.product.hearts = roll('1d6-3', min: 0)
+  #k.product.droplets = roll('1d6-3', min: 0)
+  #k.product.bolts = roll('1d6-3', min: 0)
+  #k.product.shields = roll('1d6-3', min: 0)
+  #k.product.persons = roll('1d6-5', min: 0, max: 1)
 
-  k.product.level =
-    %w[ hearts droplets bolts shields persons ]
-      .inject(0) { |r, n|
-        mod =
-          n == 'persons' ? 4 :
-          1
-        r + mod * k.product[n] }
+  #k.product.level =
+  #  %w[ hearts droplets bolts shields persons ]
+  #    .inject(0) { |r, n|
+  #      mod =
+  #        n == 'persons' ? 4 :
+  #        1
+  #      r + mod * k.product[n] }
 
   c = ''
   c += ' east-row' if [ 2, 5, 8 ].include?(i)
@@ -194,10 +210,11 @@ def make_card(f, i)
 
   f.puts("<div class='card#{c}'>")
 
-  make_head(k, f)
+  #make_head(k, f)
   make_text(k, f)
   make_illustration(k, f)
-  make_foot(k, f)
+  #make_foot(k, f)
+  make_gates(k, f)
 
   f.puts("</div>")
 end
