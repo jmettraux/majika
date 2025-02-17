@@ -1,5 +1,5 @@
 
-RUBY = ruby30
+RUBY = ruby33
 
 poem:
 	@$(RUBY) lib/majika/poem.rb
